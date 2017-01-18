@@ -25,8 +25,6 @@ import static javafx.scene.image.PixelFormat.getIntArgbInstance;
 import static javafx.scene.image.PixelFormat.getIntArgbPreInstance;
 import javafx.scene.image.WritableImage;
 import javax.swing.*;
-import ru.sbtqa.monte.media.util.stream.BiIntConsumer;
-import static ru.sbtqa.monte.media.util.stream.RangeStream.range;
 
 /**
  * Image processing methods for buffered images.
@@ -126,14 +124,6 @@ public class Images {
 
         // split the image into bands and convert each band in parallel
         //op.filter(src.getRaster(), dest.getRaster());
-        range(0, h).parallel().forEach(new BiIntConsumer() {
-            @Override
-            public void accept(int lo, int hi) {
-                Raster src1 = src.getRaster().createChild(0, lo, w, hi - lo, 0, 0, null);
-                WritableRaster dest1 = (WritableRaster) dest.getRaster().createChild(0, lo, w, hi - lo, 0, 0, null);
-                op.filter(src1, dest1);
-            }
-        });
 
         return dest;
     }
