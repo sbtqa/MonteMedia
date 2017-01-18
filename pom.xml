@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ru.sbtqa</groupId>
   <artifactId>monte-media</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1.0-JAVA7</version>
   <packaging>jar</packaging>
   <name>monte-media</name>
   <description>monte-media description</description>
